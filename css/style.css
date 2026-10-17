@@ -1,0 +1,148 @@
+/* إعدادات عامة */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  padding: 16px;
+}
+
+/* جسم الآلة الحاسبة */
+.calculator {
+  background: #ffffff;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 24px;
+  padding: 24px 20px 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08),
+              0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.brand {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* شاشة العرض */
+.display {
+  background: #f8f9fb;
+  border-radius: 14px;
+  padding: 18px 16px;
+  margin-bottom: 18px;
+  min-height: 100px;
+  text-align: right;
+  direction: ltr;
+  border: 1px solid #eceff3;
+}
+
+.expression {
+  font-size: 16px;
+  color: #8a95a5;
+  min-height: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 6px;
+}
+
+.result {
+  font-size: 36px;
+  font-weight: 600;
+  color: #1f2937;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* شبكة الأزرار: 6 صفوف × 5 أعمدة */
+.keys {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 10px;
+  aspect-ratio: 5 / 6;
+}
+
+/* شكل الزر العام */
+.key {
+  border: none;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #2c3e50;
+  background: #eef1f5;
+  transition: transform 0.08s ease, background 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.key:active {
+  transform: scale(0.94);
+  box-shadow: none;
+}
+
+/* الأرقام */
+.key:not(.key-fn):not(.key-op):not(.key-eq):not(.zero) {
+  background: #ffffff;
+  border: 1px solid #e6e9ef;
+}
+
+/* الوظائف العلمية (sin, cos, π, ...) — أزرق */
+.key-fn {
+  background: #4a90e2;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.key-fn:hover { background: #3a7bc8; }
+
+/* العمليات الحسابية (÷, ×, +, −) — برتقالي */
+.key-op {
+  background: #ff8c42;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.key-op:hover { background: #f07529; }
+
+/* زر يساوي — برتقالي داكن مميز */
+.key-eq {
+  background: linear-gradient(135deg, #ff7b2e, #ff8c42);
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  grid-row: span 2; /* يمتد على صفين */
+  box-shadow: 0 4px 12px rgba(255, 140, 66, 0.35);
+}
+
+.key-eq:active {
+  background: linear-gradient(135deg, #e86a1f, #ff7b2e);
+}
+
+/* زر الصفر — عريض */
+.zero {
+  grid-column: span 3; /* يمتد على 3 أعمدة */
+}
+
+/* تحسينات للهواتف */
+@media (max-width: 400px) {
+  .calculator { padding: 16px 14px; }
+  .result { font-size: 30px; }
+  .key { font-size: 16px; }
+  .key-op { font-size: 18px; }
+  .key-eq { font-size: 20px; }
+  .key-fn { font-size: 13px; }
+}
